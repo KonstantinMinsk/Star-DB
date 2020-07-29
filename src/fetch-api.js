@@ -1,4 +1,4 @@
-
+// Theory 
 const getResource = async (url) => {
     const res = await fetch(url);
     if(!res.ok) {
@@ -24,3 +24,4 @@ getResource('https://swapi.dev/api/people/11/')
 //     }).then( body => {
 //         console.log(body);
 //     })
+

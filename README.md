@@ -1,9 +1,10 @@
-### Star-DB
+# Star-DB
 
 * create-react-app name-folder
 * https://bootswatch.com/4/darkly/bootstrap.min.css 
 * https://swapi.dev/ 
-# Fetch API. 
+
+### Fetch API. 
 Для получения данных с сервера делаем два вызова, каждый вернет Promise.
 > res = await fetch(url);
 > body = res.json();
@@ -11,3 +12,6 @@
 * Fetch отклоняет (reject) Promise, только если произошла ошибка сети (сервер недоступен)
 * Чтобы проверить код результата используем result.status
 * result.ok === true если result.status содержит один из ОК-статусов (200-229)
+
+### Create class service client API. 
+Create class SwapiServise будет обрабатывать API, компоненты не должны знать откуда берутся данные.
