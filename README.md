@@ -15,3 +15,6 @@
 
 ### Create class service client API. 
 Create class SwapiServise будет обрабатывать API, компоненты не должны знать откуда берутся данные.
+
+### Create Components (jsx & css). 
+Render components without state & logic
