@@ -19,7 +19,10 @@ Create class SwapiServise будет обрабатывать API, компон�
 ### Create Components (jsx & css). 
 Render components without state & logic
 
-### Add state in component - Random planet.
+### Add state in component - RandomPlanet.
 
 ### refactor client API SwapiServise
 Get id из url: "http://swapi.dev/api/planets/11/" with RegExp - https://regex101.com/ 
+
+### Add Loader (Spinner) + refactor component - RandomPlanet
+https://loading.io/ 
