@@ -26,3 +26,6 @@ Get id из url: "http://swapi.dev/api/planets/11/" with RegExp - https://regex1
 
 ### Add Loader (Spinner) + refactor component - RandomPlanet
 https://loading.io/ 
+
+### Add ErrorIndicator
+* + import icon from './death-star.png'; <img src={icon} alt="error icon"/>
