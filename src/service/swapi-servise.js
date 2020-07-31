@@ -1,4 +1,4 @@
-class SwapiServise {
+ export default class SwapiServise {
 
     async getResource(url) {
         const res = await fetch(url);
@@ -33,10 +33,10 @@ class SwapiServise {
     }
 }
 
-const swapi = new SwapiServise();
+// const swapi = new SwapiServise();
 
-swapi.getAllPeople().then((people) => {
-    people.forEach(person => {
-        console.log(person);
-    });
-})
+// swapi.getAllPeople().then((people) => {
+//     people.forEach(person => {
+//         console.log(person);
+//     });
+// })

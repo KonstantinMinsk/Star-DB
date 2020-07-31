@@ -11,10 +11,12 @@
 Кроме json() есть другие ф-ции для других типов ответов blob(), formData(), text() ... 
 * Fetch отклоняет (reject) Promise, только если произошла ошибка сети (сервер недоступен)
 * Чтобы проверить код результата используем result.status
-* result.ok === true если result.status содержит один из ОК-статусов (200-229)
+* result.ok === true если result.status содержит один из ОК-статусов (200-299)
 
 ### Create class service client API. 
 Create class SwapiServise будет обрабатывать API, компоненты не должны знать откуда берутся данные.
 
 ### Create Components (jsx & css). 
 Render components without state & logic
+
+### Add state in component - Random planet.
