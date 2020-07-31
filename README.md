@@ -20,3 +20,6 @@ Create class SwapiServise будет обрабатывать API, компон�
 Render components without state & logic
 
 ### Add state in component - Random planet.
+
+### refactor client API SwapiServise
+Get id из url: "http://swapi.dev/api/planets/11/" with RegExp - https://regex101.com/ 
