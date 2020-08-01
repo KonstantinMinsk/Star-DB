@@ -29,3 +29,8 @@ https://loading.io/
 
 ### Add ErrorIndicator
 * + import icon from './death-star.png'; <img src={icon} alt="error icon"/>
+
+### Add ErrorIndicator 
+Refactor component - RandomPlanet add componentDidMount() / componentWillUnmount()
+componentDidMount() { this.interval = setInterval(this.updatePlanet, 5000) }
+componentWillUnmount() { clearInterval(this.interval) }

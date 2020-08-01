@@ -38,6 +38,7 @@
     _extractId(item) {
         const idRegExp = /\/([0-9]*)\/$/;
         const id = item.url.match(idRegExp)[1];
+        return id
     }
     _transforPlanet(planet) {
         return {
