@@ -3,5 +3,11 @@ body {
 }
 
 .row {
-    margin: 32px 0 0;
+    margin: 32px 0 32px;
 }
+
+@media (max-width: 768px) {
+    .row {
+      justify-content: center;
+    } 
+  }

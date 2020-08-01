@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './app.css';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import ItemList from '../item-list';
+import ItemList from '../item-list/itemList';
 import PersonDetails from '../person-details';
 import { render } from '@testing-library/react';
 
@@ -10,6 +10,13 @@ export default class App extends Component {
 
   state = {
     showRandomPlanet: true,
+    selectedPerson: 11,
+  }
+
+  onPersonSelected = (id) => {
+    this.setState({
+      selectedPerson: id
+    })
   }
 
   toggleRandomPlanet = () => {
@@ -20,7 +27,7 @@ export default class App extends Component {
 
   render() {
 
-    const { showRandomPlanet } = this.state
+    const { showRandomPlanet, selectedPerson } = this.state
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null
 
     return (
@@ -33,8 +40,8 @@ export default class App extends Component {
             Toggle Random Planet
           </button>
           <div className='row'>
-              <ItemList />
-              <PersonDetails />
+              <ItemList onItemSelected={ this.onPersonSelected } />
+              <PersonDetails personId={ selectedPerson } />
           </div>
       </>
     );

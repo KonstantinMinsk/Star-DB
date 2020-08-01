@@ -28,3 +28,13 @@
     line-height: 3rem;
     padding: 1rem 1rem;
   }
+
+  @media (max-width: 768px) { 
+    .header {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .header ul {
+      padding-left: 0;
+    }
+ }

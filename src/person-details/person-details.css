@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: row;
     padding: 1rem;
+    align-self: flex-start;
   }
   
   .person-details .person-image {
-    width: 30%;
+    width: 35%;
     border-radius: 6px;
+    flex-grow: 1;
+    align-self: start;
   }
   
   .person-details .list-group-item, h4 {
@@ -16,3 +19,12 @@
   .person-details .list-group-item .term{
     margin-right: .5rem;
   }
+
+  @media (max-width: 768px) { 
+    .person-details {
+        min-width: 100%;
+    }
+    .person-details .person-image {
+      width: 35%;
+    }
+ }

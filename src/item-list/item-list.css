@@ -1,7 +1,19 @@
 .item-list .list-group-item {
     cursor: pointer;
   }
+
+  .item-list {
+    padding-right: 2rem;
+  } 
   
   .item-list .list-group-item:hover {
     background-color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .item-list {
+      min-width: 100%;
+      padding: 0;
+      margin-bottom: 2rem;
+    } 
   }
