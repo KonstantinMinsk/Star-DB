@@ -41,3 +41,6 @@ Update App
 
 ### Refactor component - PersonDetails add componentDidMount() / componentDidUpdate(prevProps)
 check props, when choose a new person (this.props.NAME !== prevProps.NAME)
+
+### Refactor component - App add componentDidCatch()
+add in folder Components - ErrorButton for production

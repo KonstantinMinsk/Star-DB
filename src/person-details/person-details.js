@@ -26,10 +26,6 @@ export default class PersonDetails extends Component {
     }
   }
 
-  componentWillUpdate() {
-
-  }
-
   updatePerson() {
     const { personId } = this.props;
     if(!personId) {
@@ -39,7 +35,7 @@ export default class PersonDetails extends Component {
     this.swapiService
       .getPerson(personId)
       .then(person => {
-        this.setState({
+        this.setState({ 
           person,
           loading: false
         })
