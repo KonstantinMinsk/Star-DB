@@ -12,6 +12,7 @@
 
     async getAllPeople() {
         const res = await this.getResource('https://swapi.dev/api/people/');
+        // return res.results
         return res.results.map( person => this._transforPerson(person));
     }
     async getPerson(id) {
@@ -53,9 +54,9 @@
         return {
             id: this._extractId(person),
             name: person.name,
-            birdYear: person.birdYear,
             gender: person.gender,
-            colorEyes: person.colorEyes
+            birthYear: person.birth_year,
+            eyeColor: person.eye_color
           }
     }
     _transforStarship(starship) {
@@ -64,8 +65,8 @@
             name: starship.name,
             model: starship.model,
             length: starship.length,
-            cargoCapacity: starship.cargoCapacity,
-            costInCredit: starship.costInCredit
+            cargoCapacity: starship.cargo_capacity,
+            costInCredit: starship.cost_in_credit
           }
     }
 }

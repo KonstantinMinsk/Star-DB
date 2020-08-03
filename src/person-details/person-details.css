@@ -8,7 +8,6 @@
   .person-details .person-image {
     width: 35%;
     border-radius: 6px;
-    flex-grow: 1;
     align-self: start;
   }
   

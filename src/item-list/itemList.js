@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './item-list.css';
 import SwapiServise from '../service/swapi-servise';
 import Spinner from '../spinner/spinner';
+import ErrorIndicator from '../error-indicator';
 
 class ItemList extends Component {
 
@@ -9,6 +10,8 @@ class ItemList extends Component {
 
     state = {
         peopleList: null,
+        loading: true,
+        error: false
     }
 
     onError = (error) => {
@@ -44,14 +47,16 @@ class ItemList extends Component {
 
     render() {
 
-        const { peopleList } = this.state;
+        const { peopleList, error } = this.state;
         if(!peopleList) {
             return <Spinner />
         }
+        const errorMessage = error ? <ErrorIndicator /> : null;
 
-        const items = this.renderItem(peopleList)
+        const items = !error ? this.renderItem(peopleList) : null;
         return (
             <ul className='item-list list-group col-6'>
+                { errorMessage }
                 { items }
             </ul>
         )

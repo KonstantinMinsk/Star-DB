@@ -38,3 +38,6 @@ componentWillUnmount() { clearInterval(this.interval) }
 
 ### Add state in component - ItemList
 Update App
+
+### Refactor component - PersonDetails add componentDidMount() / componentDidUpdate(prevProps)
+check props, when choose a new person (this.props.NAME !== prevProps.NAME)

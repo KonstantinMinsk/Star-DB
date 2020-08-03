@@ -3,7 +3,7 @@ import './app.css';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
 import ItemList from '../item-list/itemList';
-import PersonDetails from '../person-details';
+import PersonDetails from '../person-details/person-details';
 import { render } from '@testing-library/react';
 
 export default class App extends Component {
