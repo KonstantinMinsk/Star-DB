@@ -16,9 +16,7 @@ export default class App extends Component {
   }
 
   componentDidCatch() {
-    this.setState({
-      hasError: true
-    })
+    this.setState({ hasError: true })
   }
 
   toggleRandomPlanet = () => {
