@@ -46,3 +46,4 @@ check props, when choose a new person (this.props.NAME !== prevProps.NAME)
 add in folder Components - ErrorButton for production
 
 ### feat: PeoplePage, refactor: App
+add componentDidCatch(error, info) in PeoplePage 
