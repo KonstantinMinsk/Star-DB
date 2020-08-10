@@ -51,3 +51,8 @@ add componentDidCatch(error, info) in PeoplePage
 ### Refactor component  - ItemList (del swapiService, add fn getData)
 Refactor component  - SwapiServise, fn -> arrow functions
 add ItemList in App
+
+### Render fn
+> Pattern React - give a fn in component, which render a part component (|| all component) 
+> <Card renderBody={ () => <p>Hello</p> } /> 
+> This func return string || React component

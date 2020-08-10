@@ -37,6 +37,7 @@ export default class PeoplePage extends Component {
                 <ItemList 
                     onItemSelected={ this.onPersonSelected } 
                     getData={ this.swapiServise.getAllPeople }
+                    renderLabel={ item => item.name }
                     />
                 <PersonDetails personId={ selectedPerson } />
             </div>

@@ -32,13 +32,14 @@ class ItemList extends Component {
     }
 
     renderItem(arr) {
-        return arr.map(person => {
-            const { id, name } = person;
+        return arr.map(item => {
+            const { id, name } = item;
+            const label = this.props.renderLabel(item)
             return (
                 <li className='list-group-item'
                     key={id} 
                     onClick={ () => this.props.onItemSelected(id) } >
-                    { name }
+                    { label }
                 </li>
             )
         })
