@@ -1,6 +1,6 @@
  export default class SwapiServise {
 
-    async getResource(url) {
+    getResource = async (url) => {
         const res = await fetch(url);
         if(!res.ok) {
             throw new Error(`Could not fetch ${url},
@@ -10,38 +10,38 @@
         return body;
     }
 
-    async getAllPeople() {
+    getAllPeople = async () => {
         const res = await this.getResource('https://swapi.dev/api/people/');
         // return res.results
         return res.results.map( person => this._transforPerson(person));
     }
-    async getPerson(id) {
+    getPerson = async (id) => {
         const person = await this.getResource(`https://swapi.dev/api/people/${id}`);
         return this._transforPerson(person);
     }
-    async getAllPlanets() {
+    getAllPlanets = async () => {
         const res = await this.getResource('https://swapi.dev/api/planets/');
         return res.results.map(this._transforPlanet);
     }
-    async getPlanet(id) {
+    getPlanet = async (id) => {
         const planet = await this.getResource(`https://swapi.dev/api/planets/${id}`);
         return this._transforPlanet(planet);
     }
-    async getAllStarships() {
+    getAllStarships = async () => {
         const res = await this.getResource('https://swapi.dev/api/starships/');
         return res.results.map(this._transforStarship);
     }
-    async getStarship(id) {
+    getStarship = async (id) => {
         const starship = await this.getResource(`https://swapi.dev/api/starships/${id}`);
         return this._transforStarship(starship)
     }
 
-    _extractId(item) {
+    _extractId = (item) => {
         const idRegExp = /\/([0-9]*)\/$/;
         const id = item.url.match(idRegExp)[1];
         return id
     }
-    _transforPlanet(planet) {
+    _transforPlanet = (planet) => {
         return {
             id: this._extractId(planet),
             name: planet.name,
@@ -50,7 +50,7 @@
             diameter: planet.diameter,
           }
     }
-    _transforPerson(person) {
+    _transforPerson = (person) =>{
         return {
             id: this._extractId(person),
             name: person.name,
@@ -59,7 +59,7 @@
             eyeColor: person.eye_color
           }
     }
-    _transforStarship(starship) {
+    _transforStarship = (starship) => {
         return {
             id: this._extractId(starship),
             name: starship.name,

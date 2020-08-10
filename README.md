@@ -47,3 +47,7 @@ add in folder Components - ErrorButton for production
 
 ### feat: PeoplePage, refactor: App
 add componentDidCatch(error, info) in PeoplePage 
+
+### Refactor component  - ItemList (del swapiService, add fn getData)
+Refactor component  - SwapiServise, fn -> arrow functions
+add ItemList in App

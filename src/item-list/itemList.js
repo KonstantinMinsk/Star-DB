@@ -6,10 +6,8 @@ import ErrorIndicator from '../error-indicator';
 
 class ItemList extends Component {
 
-    swapiService = new SwapiServise;
-
     state = {
-        peopleList: null,
+        itemList: null,
         loading: true,
         error: false
     }
@@ -22,11 +20,12 @@ class ItemList extends Component {
       }
     
     componentDidMount() {
-        this.swapiService
-            .getAllPeople()
-            .then(peopleList => {
+        const { getData } = this.props;
+
+        getData()
+            .then(itemList => {
                 this.setState({
-                    peopleList
+                    itemList
                 })
             })
             .catch(this.onError)
@@ -47,13 +46,13 @@ class ItemList extends Component {
 
     render() {
 
-        const { peopleList, error } = this.state;
-        if(!peopleList) {
+        const { itemList, error } = this.state;
+        if(!itemList) {
             return <Spinner />
         }
         const errorMessage = error ? <ErrorIndicator /> : null;
 
-        const items = !error ? this.renderItem(peopleList) : null;
+        const items = !error ? this.renderItem(itemList) : null;
         return (
             <ul className='item-list list-group col-6'>
                 { errorMessage }
