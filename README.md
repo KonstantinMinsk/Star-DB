@@ -57,5 +57,11 @@ add ItemList in App
 > ```<Card renderBody={ () => <p>Hello</p> } />``` 
 > This func return string || React component
 
+### Create element-container Row, refactor: change PeoplePage (add Row)
 
-### Create element-container Row
+### Create ErrorBoundary, refactor: change PeoplePage (add ErrorBoundary)
+> Компоненту можно передавать одно из свойств поместив его в тело компонента
+> <Card> { price } </Card>
+> This props доступно через props.children
+> Поддерживает любые типы данных - elements, functions, objects & another
+
