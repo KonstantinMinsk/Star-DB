@@ -54,5 +54,8 @@ add ItemList in App
 
 ### Render fn
 > Pattern React - give a fn in component, which render a part component (|| all component) 
-> <Card renderBody={ () => <p>Hello</p> } /> 
+> ```<Card renderBody={ () => <p>Hello</p> } />``` 
 > This func return string || React component
+
+
+### Create element-container Row
