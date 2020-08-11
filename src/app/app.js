@@ -36,10 +36,18 @@ export default class App extends Component {
       return <ErrorIndicator />
     }
 
-    const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null
+    const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
 
-    const personDetails = <ItemDetails itemId={ 14 } getData={ this.swapiServise.getPerson } />;
-    const planetDetails = <ItemDetails itemId={ 13 } getData={ this.swapiServise.getPlanet } />;
+    const { getPersonImage, getPlanetImage, getStarshipImage } = this.swapiServise;
+
+    const personDetails = <ItemDetails itemId={ 14 } 
+                                       getData={ this.swapiServise.getPerson } 
+                                       getImageURL={ getPersonImage }
+                                       />;
+    const planetDetails = <ItemDetails itemId={ 13 } 
+                                       getData={ this.swapiServise.getPlanet } 
+                                       getImageURL={ getPlanetImage }
+                                       />;
 
     return (
       <>

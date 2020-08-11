@@ -69,6 +69,19 @@
             costInCredit: starship.cost_in_credit
           }
     }
+
+    getPersonImage = (person) => {
+        const { id } = person;
+        return `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`
+    }
+    getPlanetImage = (item) => {
+        const { id } = item;
+        return `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`
+    }
+    getStarshipImage = (item) => {
+        const { id } = item;
+        return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+    }
 }
 
 // const swapi = new SwapiServise();

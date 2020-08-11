@@ -10,6 +10,7 @@ export default class ItemDetails extends Component {
   state = {
     item: null,
     loading: true,
+    image: null,
   }
 
   componentDidMount() {
@@ -26,7 +27,7 @@ export default class ItemDetails extends Component {
   }
 
   updateItem() {
-    const { itemId, getData } = this.props;
+    const { itemId, getData, getImageURL } = this.props;
     if(!itemId) {
       return
     }
@@ -35,14 +36,15 @@ export default class ItemDetails extends Component {
       .then(item => {
         this.setState({ 
           item,
-          loading: false
+          loading: false,
+          image: getImageURL(item)
         })
       })
   }
 
   render() {
 
-    const { item, loading } = this.state;
+    const { item, loading, image } = this.state;
 
     // if(!person) {
     //   return (
@@ -50,7 +52,7 @@ export default class ItemDetails extends Component {
     //   )
     // }
 
-    const content = loading ? <Spinner /> : <ViewPerson item={item} />
+    const content = loading ? <Spinner /> : <ViewPerson item={item} image={ image } />
 
     return (
     <div className="person-details card col-6">
@@ -61,14 +63,14 @@ export default class ItemDetails extends Component {
 }
 
 
-const ViewPerson = ({ item }) => {
+const ViewPerson = ({ item, image }) => {
 
   const { id, name, gender, birthYear, eyeColor } = item;
 
   return (
     <>
       <img className="person-image"
-        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} />
+        src={ image } />
 
       <div className="card-body">
         <h4> { name } </h4>

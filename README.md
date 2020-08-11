@@ -66,3 +66,6 @@ add ItemList in App
 > Поддерживает любые типы данных - elements, functions, objects & another
 
 ### Refactor component  - ItemDetails (del swapiService, add fn getData)
+
+### Create fn - getPersonImage in SwapiServise
+Refactor ItemDetails (del swapiService, add fn getData)
