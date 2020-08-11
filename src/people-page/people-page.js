@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './people-page.css';
 import ItemList from '../item-list/itemList';
-import PersonDetails from '../person-details/person-details';
 import ErrorIndicator from '../error-indicator';
 import SwapiServise from '../service/swapi-servise';
 import Row from '../row/row';
 import ErrorBoundary from '../error-boundary/error-boundary';
+import ItemDetails from '../item-details/item-details';
 
 export default class PeoplePage extends Component {
 
@@ -26,17 +26,26 @@ export default class PeoplePage extends Component {
         const { selectedPerson } = this.state;
 
         const itemList = (
-          <ItemList 
+          <ErrorBoundary>
+              <ItemList 
                     onItemSelected={ this.onPersonSelected } 
                     getData={ this.swapiServise.getAllPeople }
                     renderLabel={ item => item.name }
                     />
+          </ErrorBoundary>
         );
-        const personDetails = ( <PersonDetails personId={ selectedPerson } /> )
+
+        const personDetails = ( 
+          <ErrorBoundary>
+              <ItemDetails itemId={ selectedPerson } 
+                           getData={ this.swapiServise.getPerson }
+              /> 
+          </ErrorBoundary>
+          )
 
         return (
-            <Row left={ <ErrorBoundary> { itemList }  </ErrorBoundary> } 
-                 right={ <ErrorBoundary> { personDetails } </ErrorBoundary> } />
+            <Row left={ itemList } 
+                 right={ personDetails } />
         )
     }
 }

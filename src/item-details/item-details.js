@@ -5,39 +5,36 @@ import SwapiServise from '../service/swapi-servise';
 import Spinner from '../spinner/spinner';
 import ErrorButton from '../error-button/error-button';
 
-export default class PersonDetails extends Component {
-
-  swapiService = new SwapiServise;
+export default class ItemDetails extends Component {
 
   state = {
-    person: null,
+    item: null,
     loading: true,
   }
 
   componentDidMount() {
-    this.updatePerson();
+    this.updateItem();
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.personId !== prevProps.personId) {
+    if(this.props.itemId !== prevProps.itemId) {
       this.setState({
         loading: true
       })
-      this.updatePerson();
+      this.updateItem();
     }
   }
 
-  updatePerson() {
-    const { personId } = this.props;
-    if(!personId) {
+  updateItem() {
+    const { itemId, getData } = this.props;
+    if(!itemId) {
       return
     }
-
-    this.swapiService
-      .getPerson(personId)
-      .then(person => {
+    // getData = this.swapiService.getPerson
+    getData(itemId)
+      .then(item => {
         this.setState({ 
-          person,
+          item,
           loading: false
         })
       })
@@ -45,7 +42,7 @@ export default class PersonDetails extends Component {
 
   render() {
 
-    const { person, loading } = this.state;
+    const { item, loading } = this.state;
 
     // if(!person) {
     //   return (
@@ -53,7 +50,7 @@ export default class PersonDetails extends Component {
     //   )
     // }
 
-    const content = loading ? <Spinner /> : <ViewPerson person={person} />
+    const content = loading ? <Spinner /> : <ViewPerson item={item} />
 
     return (
     <div className="person-details card col-6">
@@ -64,9 +61,9 @@ export default class PersonDetails extends Component {
 }
 
 
-const ViewPerson = ({person}) => {
+const ViewPerson = ({ item }) => {
 
-  const { id, name, gender, birthYear, eyeColor } = person;
+  const { id, name, gender, birthYear, eyeColor } = item;
 
   return (
     <>

@@ -65,3 +65,4 @@ add ItemList in App
 > This props доступно через props.children
 > Поддерживает любые типы данных - elements, functions, objects & another
 
+### Refactor component  - ItemDetails (del swapiService, add fn getData)

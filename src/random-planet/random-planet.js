@@ -6,7 +6,7 @@ import ErrorIndicator from '../error-indicator';
 
 export default class RandomPlanet extends Component {
 
-  swapiService = new SwapiServise;
+  swapiService = new SwapiServise();
 
   state = {
     planet: {},
@@ -15,7 +15,7 @@ export default class RandomPlanet extends Component {
   }
 
   componentDidMount() {
-    this.updatePlanet()
+    this.updatePlanet();
     this.interval = setInterval(this.updatePlanet, 5000);
   }
 
@@ -79,7 +79,7 @@ const PlanetView = ({ planet }) => {
 
   return (
     <React.Fragment>
-      <img className="planet-image"
+        <img className="planet-image" alt='Фото планеты'
              src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} />
         <div>
           <h4> {name} </h4>
