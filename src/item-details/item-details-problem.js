@@ -45,30 +45,14 @@ export default class ItemDetails extends Component {
   render() {
 
     const { item, loading, image } = this.state;
+    const { children } = this.props;
+    console.log(children);
 
-    const ViewPerson = () => {
-      return(
-        <React.Fragment>
-          <img className='person-image' src={image}/>
-
-          <div className="card-body">
-            <h4> { item['name'] } </h4>
-            <ul className="list-group list-group-flush">
-              { 
-                React.Children.map(this.props.children, (child, idx) => {
-                    return React.cloneElement(child, { item })
-                })
-              }
-            </ul>
-          </div>
-        </React.Fragment>
-        )
-    }
     
     
     const content = loading 
                     ? <Spinner /> 
-                    : <ViewPerson />
+                    : <ViewPerson item={ item } image={ image } > { children } </ViewPerson>
 
     return (
       <div className="person-details card col-6">
@@ -100,6 +84,23 @@ const ViewPerson = ({ item, image }) => {
       <div className="card-body">
         <h4> { item.name } </h4>
         <ul className="list-group list-group-flush">
+          {/* <li className="list-group-item">
+            <span className="term">Gender</span>
+            <span> { gender } </span>
+          </li>
+          <li className="list-group-item">
+            <span className="term">Birth Year</span>
+            <span> { birthYear } </span>
+          </li>
+          <li className="list-group-item">
+            <span className="term">Eye Color</span>
+            <span> { eyeColor } </span>
+          </li>
+          <li className="list-group-item">
+            <span className="term">
+              <ErrorButton />
+            </span>
+          </li> */}
           { 
             React.Children.map(this.props.children, (child, idx) => {
                 return React.cloneElement(child, { item })

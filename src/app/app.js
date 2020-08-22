@@ -7,7 +7,7 @@ import ErrorButton from '../error-button/error-button';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page/people-page';
 import SwapiServise from '../service/swapi-servise';
-import ItemDetails from '../item-details/item-details';
+import ItemDetails, { Record } from '../item-details/item-details';
 
 export default class App extends Component {
 
@@ -40,10 +40,16 @@ export default class App extends Component {
 
     const { getPersonImage, getPlanetImage, getStarshipImage } = this.swapiServise;
 
-    const personDetails = <ItemDetails itemId={ 14 } 
-                                       getData={ this.swapiServise.getPerson } 
-                                       getImageURL={ getPersonImage }
-                                       />;
+    const personDetails = (
+        <ItemDetails itemId={ 14 } 
+                     getData={ this.swapiServise.getPerson } 
+                     getImageURL={ getPersonImage }
+        >
+              <Record field='gender' label='Gender'/>
+              <Record field='eyeColor' label='Eye Color'/>
+        </ItemDetails>
+    )
+
     const planetDetails = <ItemDetails itemId={ 13 } 
                                        getData={ this.swapiServise.getPlanet } 
                                        getImageURL={ getPlanetImage }
