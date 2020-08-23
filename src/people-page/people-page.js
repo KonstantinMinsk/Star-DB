@@ -5,7 +5,7 @@ import ErrorIndicator from '../error-indicator';
 import SwapiServise from '../service/swapi-servise';
 import Row from '../row/row';
 import ErrorBoundary from '../error-boundary/error-boundary';
-import ItemDetails from '../item-details/item-details';
+import ItemDetails from '../item-details/item-details-problem';
 
 export default class PeoplePage extends Component {
 

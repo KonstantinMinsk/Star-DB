@@ -46,9 +46,7 @@ export default class ItemDetails extends Component {
 
     const { item, loading, image } = this.state;
     const { children } = this.props;
-    console.log(children);
-
-    
+    // console.log({children});
     
     const content = loading 
                     ? <Spinner /> 
@@ -73,7 +71,12 @@ const Record = ({ item, field, label }) => {
 export { Record }
 
 
-const ViewPerson = ({ item, image }) => {
+const ViewPerson = (props) => {
+  const { image, item, children } = props;
+  // console.log(children);
+  // const newChildren = [children[1]];
+  // console.log(newChildren);
+  
   
   // const { id, name, gender, birthYear, eyeColor } = item;
   return (
@@ -102,7 +105,7 @@ const ViewPerson = ({ item, image }) => {
             </span>
           </li> */}
           { 
-            React.Children.map(this.props.children, (child, idx) => {
+            React.Children.map(children[1], (child, idx) => {
                 return React.cloneElement(child, { item })
             })
           }

@@ -69,3 +69,10 @@ add ItemList in App
 
 ### Create fn - getPersonImage in SwapiServise
 Refactor ItemDetails (del swapiService, add fn getData)
+
+### Fix problem App -> ItemDetails(props.children) -> ViewDetails(props.children)
+If we need to transfer props.children elem, but elem need to transfer another elem:
+> ```<ViewDetails> { children } </ViewDetails>```
+> ```const newChildren = [children[1]]```
+> ```React.Children.map(newChildren, (child, idx) =>```
+ 
