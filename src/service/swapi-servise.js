@@ -48,6 +48,7 @@
             population: planet.population,
             rotationPeriod: planet.rotation_period,
             diameter: planet.diameter,
+            climate: planet.climate,
           }
     }
     _transforPerson = (person) =>{

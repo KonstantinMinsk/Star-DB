@@ -8,7 +8,8 @@ import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page/people-page';
 import SwapiServise from '../service/swapi-servise';
 import ItemDetails, { Record } from '../item-details/item-details-problem';
-import { f3 } from '../hoc/theory';
+import { PersonList, PlanetList, StarshipList } from '../sw-components';
+import PlanetPage from '../planet-page/planet-page';
 
 export default class App extends Component {
 
@@ -42,7 +43,7 @@ export default class App extends Component {
     const { getPersonImage, getPlanetImage, getStarshipImage } = this.swapiServise;
 
     const personDetails = (
-        <ItemDetails itemId={ 11 } 
+        <ItemDetails itemId={ 41 } 
                      getData={ this.swapiServise.getPerson } 
                      getImageURL={ getPersonImage }
         >
@@ -52,7 +53,7 @@ export default class App extends Component {
     )
 
     const planetDetails = (
-        <ItemDetails  itemId={ 8 } 
+        <ItemDetails  itemId={ 18 } 
                       getData={ this.swapiServise.getPlanet } 
                       getImageURL={ getPlanetImage }
         >
@@ -76,6 +77,7 @@ export default class App extends Component {
               {personDetails}
               {planetDetails}
           </div>
+          <PlanetPage />
       </>
     );
   }

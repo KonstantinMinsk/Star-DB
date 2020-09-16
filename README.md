@@ -76,3 +76,7 @@ If we need to transfer props.children elem, but elem need to transfer another el
 > ```const newChildren = [children[1]]```
 > ```React.Children.map(newChildren, (child, idx) =>```
  
+### Create (sw-components) PersonList, PlanetList, StarshipList used hoc - { withData, ViewList }
+### Create PlanetPage used PlanetList & PlanetDetails
++ Create PersonDetails, PlanetDetails, StarshipDetails
++ refactor { withData, ViewList } 

@@ -1,7 +1,6 @@
-// import React, { Component } from 'react';
-// import Spinner from '../spinner/spinner';
-// import ErrorIndicator from '../error-indicator';
-// import ItemList from '../item-list/itemList';
+import React, { Component } from 'react';
+import Spinner from '../spinner/spinner';
+import ErrorIndicator from '../error-indicator';
 
 // const f = (a) => {
 //     return (b) => {
@@ -14,77 +13,77 @@
 // const f2 = () => {
 //     return 'View'
 // }
-// // f2();
+// f2();
 
 
+const withData = (View, getData) => {
+    return class extends Component {
 
-// const withData = (View) => {
-//     return class extends Component {
-
-//         state = {
-//             itemList: null,
-//             loading: true,
-//             error: false
-//         }
+        state = {
+            itemList: null,
+            loading: true,
+            error: false
+        }
     
-//         onError = (error) => {
-//             this.setState({
-//               error: true,
-//               loading: false
-//             })
-//           }
+        onError = (error) => {
+            this.setState({
+              error: true,
+              loading: false
+            })
+          }
         
-//         componentDidMount() {
-//             // console.log(this.props);
-            
-//             const { getData } = this.props;
+        componentDidMount() {
+            // console.log(this.props);
+            // const { getData } = this.props;
     
-//             getData()
-//                 .then(itemList => {
-//                     this.setState({
-//                         itemList
-//                     })
-//                 })
-//                 .catch(this.onError)
-//         }
+            getData()
+                .then(itemList => {
+                    this.setState({
+                        itemList
+                    })
+                })
+                .catch(this.onError)
+        }
 
-//         render() {
-//             const { itemList, error } = this.state;
-//             if(!itemList) { return <Spinner /> }
-//             if(!error) { return <ErrorIndicator /> };
+        render() {
+            const { itemList, error } = this.state;
+            if(!itemList) { return <Spinner /> }
+            if(error) { return <ErrorIndicator /> };
 
-//             return (
-//                 <View { ...this.props } itemList={ itemList } />
-//             )
-//         }
-//     }
-// }
-// export default withData(NameList);
-
+            return (
+                <View { ...this.props } itemList={ itemList } />
+            )
+        }
+    }
+}
 
 
-// const NameList = (props) => {
+const ViewList = (props) => {
 
-//     const { itemList } = props;
+    const { itemList, onItemSelected, children: renderLabel } = props;
+    // console.log(props);
     
-//     const renderItem = (arr) => {
-//         return arr.map(item => {
-//             const { id, name } = item;
-//             const label = this.props.renderLabel(item)
-//             return (
-//                 <li className='list-group-item'
-//                     key={id} 
-//                     onClick={ () => this.props.onItemSelected(id) } >
-//                     { label }
-//                 </li>
-//             )
-//         })
-//     }
+    const renderItem = (arr) => {
+        return arr.map(item => {
+            const { id, name } = item;
+            // const label = renderLabel(item); где передавать props ?
+            return (
+                <li className='list-group-item'
+                    key={id} 
+                    onClick={ () => onItemSelected(id) } 
+                >
+                    { name }
+                </li>
+            )
+        })
+    }
 
-//     const items = this.renderItem(itemList);
-//     return (
-//         <ul className='item-list list-group col-6'>
-//             { items }
-//         </ul>
-//     )
-// }
+    const items = renderItem(itemList);
+    return (
+        <ul className='item-list list-group col-6'>
+            { items }
+        </ul>
+    )
+}
+
+export { withData, ViewList }
