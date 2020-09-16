@@ -66,13 +66,13 @@ const ViewList = (props) => {
     const renderItem = (arr) => {
         return arr.map(item => {
             const { id, name } = item;
-            // const label = renderLabel(item); где передавать props ?
+            const label = renderLabel(item); //где передавать props ?
             return (
                 <li className='list-group-item'
                     key={id} 
                     onClick={ () => onItemSelected(id) } 
                 >
-                    { name }
+                    { label }
                 </li>
             )
         })

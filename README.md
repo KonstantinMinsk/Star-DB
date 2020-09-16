@@ -80,3 +80,6 @@ If we need to transfer props.children elem, but elem need to transfer another el
 ### Create PlanetPage used PlanetList & PlanetDetails
 + Create PersonDetails, PlanetDetails, StarshipDetails
 + refactor { withData, ViewList } 
+
+### Create fn composition fn(fnElem(Elem, fnForChild), fnForAPI)
+const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPlanets);

@@ -24,7 +24,7 @@ export default class PlanetPage extends Component {
           <ErrorBoundary>
               <PlanetList 
                     onItemSelected={ this.onPersonSelected } 
-                    // renderLabel={ item => item.name }
+                    renderLabel={ item => item.name }
                     />
           </ErrorBoundary>
         );
