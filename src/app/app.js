@@ -10,6 +10,7 @@ import SwapiServise from '../service/swapi-servise';
 import ItemDetails, { Record } from '../item-details/item-details-problem';
 import { PersonList, PlanetList, StarshipList } from '../sw-components';
 import PlanetPage from '../planet-page/planet-page';
+import { SwapiServiseProvider } from '../swapi-servise-context';
 
 export default class App extends Component {
 
@@ -62,7 +63,7 @@ export default class App extends Component {
         </ItemDetails>)
 
     return (
-      <>
+      <SwapiServiseProvider value={this.swapiServise}>
           <Header />
           { randomPlanet }
           <button
@@ -78,7 +79,7 @@ export default class App extends Component {
               {planetDetails}
           </div>
           <PlanetPage />
-      </>
+      </SwapiServiseProvider>
     );
   }
 }
