@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import './app.css';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import ItemList from '../item-list/itemList';
 import ErrorButton from '../error-button/error-button';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page/people-page';
 import SwapiServise from '../service/swapi-servise';
 import ItemDetails, { Record } from '../item-details/item-details-problem';
-import { PersonList, PlanetList, StarshipList } from '../sw-components';
 import PlanetPage from '../planet-page/planet-page';
 import { SwapiServiseProvider } from '../swapi-servise-context';
+import DummySwapiService from '../service/dummy-swapi-service';
 
 export default class App extends Component {
 
-  swapiServise = new SwapiServise();
+  swapiServise = new SwapiServise(); // for testing DummySwapiService
 
   state = {
     showRandomPlanet: true,

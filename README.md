@@ -85,3 +85,5 @@ If we need to transfer props.children elem, but elem need to transfer another el
 const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPlanets);
 
 ### Create SwapiServiseProvider in App, SwapiServiseConsumer & add in PlanetDetails
+
+### Add DummySwapiService
