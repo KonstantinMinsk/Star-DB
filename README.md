@@ -95,4 +95,5 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
             { (value) => (<Wrapped value={value} />) }
         </Consumer>
     )
-}```
+}
+```

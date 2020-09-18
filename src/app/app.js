@@ -6,7 +6,7 @@ import ErrorButton from '../error-button/error-button';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page/people-page';
 import SwapiServise from '../service/swapi-servise';
-import ItemDetails, { Record } from '../item-details/item-details-problem';
+// import ItemDetails, { Record } from '../item-details/item-details-problem';
 import PlanetPage from '../planet-page/planet-page';
 import { SwapiServiseProvider } from '../swapi-servise-context';
 import DummySwapiService from '../service/dummy-swapi-service';

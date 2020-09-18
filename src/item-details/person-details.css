@@ -23,6 +23,7 @@
         min-width: 100%;
     }
     .person-details .person-image {
-      width: 35%;
+      width: 45%;
+      align-self: center;
     }
  }
