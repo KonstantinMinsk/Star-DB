@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './people-page.css';
 import ItemList from '../item-list/itemList';
-import ErrorIndicator from '../error-indicator';
 import SwapiServise from '../service/swapi-servise';
 import Row from '../row/row';
 import ErrorBoundary from '../error-boundary/error-boundary';

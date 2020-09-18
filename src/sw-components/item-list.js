@@ -22,17 +22,25 @@ const withChildFunction = (Wrapped, fn) => {
 // const ListWithChildren = withChildFunction(ViewList, renderPlanet)
 // const compose = (x) => func(g(x));
 
+const PersonList = withData(ViewList, getAllPeople);
+
+
 const renderPlanet = ({ name, diameter}) => { 
     return <span>{`${name}, diameter ${diameter}`}</span>
 }
-
-const PersonList = withData(ViewList, getAllPeople);
 
 const PlanetList = withData(
     withChildFunction(ViewList, renderPlanet), 
     getAllPlanets);
 
-const StarshipList = withData(ViewList, getAllStarships);
+
+const renderStarship = ({ name, length}) => { 
+    return <span>{`${name}, (length - ${length})`}</span>
+}
+
+const StarshipList = withData(
+    withChildFunction(ViewList, renderStarship), 
+    getAllStarships);;
 
 export {
     PersonList,

@@ -87,3 +87,12 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 ### Create SwapiServiseProvider in App, SwapiServiseConsumer & add in PlanetDetails
 
 ### Add DummySwapiService
+
+### Create HOC for context 
+```const withValueFromContext = (Wrapped) => {
+    return (
+        <Consumer>
+            { (value) => (<Wrapped value={value} />) }
+        </Consumer>
+    )
+}```

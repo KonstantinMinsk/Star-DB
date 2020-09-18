@@ -1,4 +1,5 @@
 import React from 'react';
+import withSwapiServise from '../hoc/with-swapi-servise';
 import ItemDetails, { Record } from '../item-details/item-details-problem';
 import SwapiServise from '../service/swapi-servise';
 import { SwapiServiseConsumer } from '../swapi-servise-context';
@@ -6,11 +7,7 @@ import { SwapiServiseConsumer } from '../swapi-servise-context';
 const swapiServise = new SwapiServise();
 const {
     getPerson,
-    getPlanet,
-    getStarship,
     getPersonImage,
-    getPlanetImage,
-    getStarshipImage
 } = swapiServise;
 
 const PersonDetails = ({ itemId }) => {
@@ -47,12 +44,23 @@ const PlanetDetails = ({ itemId }) => {
     )
 }
 
-const StarshipDetails = () => {
-    
+const StarshipDetails = ({ itemId, swapiServise }) => {
+    const { getStarship, getStarshipImage } = swapiServise;
+    return (
+        <ItemDetails itemId={ itemId } 
+                     getData={ getStarship } 
+                     getImageURL={ getStarshipImage }
+    >
+        <Record field='model' label='Model'/>
+        <Record field='costInCredit' label='CostI in credit'/>
+        <Record field='cargoCapacity' label='Cargo capacity'/>
+    </ItemDetails>
+    )
 }
+export default withSwapiServise(StarshipDetails);
 
 export {
     PersonDetails,
     PlanetDetails,
-    StarshipDetails
+    // StarshipDetails
 }

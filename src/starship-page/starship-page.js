@@ -1,42 +1,43 @@
 import React, { Component } from 'react';
 import Row from '../row/row';
 import ErrorBoundary from '../error-boundary/error-boundary';
-import { PlanetDetails, PlanetList } from '../sw-components';
+import { StarshipList } from '../sw-components';
+import StarshipDetails from '../sw-components/details'
 
-export default class PlanetPage extends Component {
+export default class StarshipPage extends Component {
 
     state = {
-        selectedPlanet: 11,
+        selectedStarship: 11,
     }
 
     onPersonSelected = (id) => {
         this.setState({
-          selectedPlanet: id
+          selectedStarship: id
         })
       }
 
     render() {
 
-        const { selectedPlanet } = this.state;
+        const { selectedStarship } = this.state;
 
-        const planetList = (
+        const starshipList = (
           <ErrorBoundary>
-              <PlanetList 
+              <StarshipList 
                     onItemSelected={ this.onPersonSelected } 
                     renderLabel={ item => item.name }
                     />
           </ErrorBoundary>
         );
 
-        const personDetails = ( 
+        const starshipDetails = ( 
           <ErrorBoundary>
-              <PlanetDetails itemId={ selectedPlanet } /> 
+              <StarshipDetails itemId={ selectedStarship } /> 
           </ErrorBoundary>
           )
 
         return (
-            <Row left={ planetList } 
-                 right={ personDetails } />
+            <Row left={ starshipList } 
+                 right={ starshipDetails } />
         )
     }
 }

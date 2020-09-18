@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import './person-details.css';
-import SwapiServise from '../service/swapi-servise';
 import Spinner from '../spinner/spinner';
-import ErrorButton from '../error-button/error-button';
 
 export default class ItemDetails extends Component {
 
@@ -81,7 +79,7 @@ const ViewPerson = (props) => {
   // const { id, name, gender, birthYear, eyeColor } = item;
   return (
     <>
-      <img className="person-image"
+      <img className="person-image" alt=''
         src={ image } />
 
       <div className="card-body">

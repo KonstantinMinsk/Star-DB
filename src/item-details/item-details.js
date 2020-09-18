@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import './person-details.css';
-import SwapiServise from '../service/swapi-servise';
 import Spinner from '../spinner/spinner';
-import ErrorButton from '../error-button/error-button';
 
 export default class ItemDetails extends Component {
 
@@ -49,7 +47,7 @@ export default class ItemDetails extends Component {
     const ViewPerson = () => {
       return(
         <React.Fragment>
-          <img className='person-image' src={image}/>
+          <img className='person-image' src={image} alt=''/>
 
           <div className="card-body">
             <h4> { item['name'] } </h4>
