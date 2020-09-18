@@ -1,4 +1,4 @@
-export default class DummySwapiService {
+export default class DummySwapiServise {
 
     _people = [
       {
@@ -20,14 +20,14 @@ export default class DummySwapiService {
   
     _planets = [
       {
-        id: 1,
+        id: 11,
         name: 'Earth [TEST DATA]',
         population: '7.530.000.000',
         rotationPeriod: '23 hours 56 seconds',
         diameter: '12.742 km'
       },
       {
-        id: 2,
+        id: 12,
         name: 'Venus [TEST DATA]',
         population: 'not known',
         rotationPeriod: '243 days',
@@ -37,7 +37,7 @@ export default class DummySwapiService {
   
     _starships = [
       {
-        id: 1,
+        id: 11,
         name: 'USS Enterprise [TEST DATA]',
         model: 'NCC-1701-C',
         manufacturer: 'Northrop Grumman Shipbuilding',
@@ -46,6 +46,17 @@ export default class DummySwapiService {
         crew: 1000,
         passengers: 50,
         cargoCapacity: 100
+      },
+      {
+        id: 12,
+        name: 'Russia 1961 [TEST DATA]',
+        model: 'Belka 4',
+        manufacturer: 'Sukhoi Jet',
+        costInCredits: '500 000',
+        length: '500 meters',
+        crew: 1000,
+        passengers: 50,
+        cargoCapacity: 500
       }
     ];
   
@@ -61,28 +72,30 @@ export default class DummySwapiService {
       return this._planets;
     };
   
-    getPlanet = async () => {
-      return this._planets[0]
+    getPlanet = async (id) => {
+      const i = (id === 11 || id === 12) ? id : 11;
+      return this._planets[i-11]
     };
   
     getAllStarships = async () => {
       return this._starships;
     };
   
-    getStarship = async () => {
-      return this._starships[0];
+    getStarship = async (id) => {
+      const i = (id === 11 || id === 12) ? id : 11;
+      return this._starships[i-11];
     };
   
     getPersonImage = () => {
       return `https://placeimg.com/400/500/people`
     };
   
-    getStarshipImage = () => {
-      return `https://placeimg.com/600/400/tech`;
+    getStarshipImage = ({id}) => {
+      return `https://placeimg.com/600/400/tech/${id}`;
     };
   
-    getPlanetImage = () => {
-      return `https://placeimg.com/400/400/nature`
+    getPlanetImage = ({id}) => {
+      return `https://placeimg.com/400/400/nature/${id}`
     };
   }
   

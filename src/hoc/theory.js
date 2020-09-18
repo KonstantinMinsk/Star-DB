@@ -16,7 +16,7 @@ import ErrorIndicator from '../error-indicator';
 // f2();
 
 
-const withData = (View, getData) => {
+const withData = (View) => {
     return class extends Component {
 
         state = {
@@ -33,9 +33,17 @@ const withData = (View, getData) => {
           }
         
         componentDidMount() {
-            // console.log(this.props);
-            // const { getData } = this.props;
-    
+            this.update();
+        }
+        componentDidUpdate(prevProps) {
+            if(this.props.getData !== prevProps.getData) {
+                this.update();
+            }
+        }
+
+        update = () => {
+            console.log(this.props);
+            const { getData } = this.props;
             getData()
                 .then(itemList => {
                     this.setState({

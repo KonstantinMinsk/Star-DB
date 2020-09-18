@@ -9,17 +9,28 @@ import SwapiServise from '../service/swapi-servise';
 // import ItemDetails, { Record } from '../item-details/item-details-problem';
 import PlanetPage from '../planet-page/planet-page';
 import { SwapiServiseProvider } from '../swapi-servise-context';
-import DummySwapiService from '../service/dummy-swapi-service';
+import DummySwapiServise from '../service/dummy-swapi-service';
 import StarshipPage from '../starship-page/starship-page';
 
 export default class App extends Component {
 
-  swapiServise = new SwapiServise(); 
-  // for testing use DummySwapiService
+    // swapiServise = new SwapiServise(); 
+    // for testing use DummySwapiService
 
   state = {
     showRandomPlanet: true,
-    hasError: false
+    hasError: false,
+    swapiServise: new SwapiServise(),
+  }
+
+  onServiceChange = () => {
+    this.setState(({ swapiServise }) => {
+      const Service = swapiServise instanceof SwapiServise 
+                      ? DummySwapiServise : SwapiServise
+      return {
+            swapiServise: new Service(),
+      }
+    })
   }
 
   componentDidCatch() {
@@ -34,7 +45,7 @@ export default class App extends Component {
 
   render() {
 
-    const { showRandomPlanet, hasError } = this.state
+    const { showRandomPlanet, hasError, swapiServise } = this.state
 
     if(hasError) {
       return <ErrorIndicator />
@@ -63,8 +74,8 @@ export default class App extends Component {
     //     </ItemDetails>)
 
     return (
-      <SwapiServiseProvider value={this.swapiServise}>
-          <Header />
+      <SwapiServiseProvider value={swapiServise}>
+          <Header onServiceChange={this.onServiceChange} />
           { randomPlanet }
           <button
             className="toggle-planet btn btn-warning btn-lg"

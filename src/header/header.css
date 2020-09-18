@@ -29,6 +29,11 @@
     padding: 1rem 1rem;
   }
 
+  .header button {
+    border-radius: 10px;
+    outline: none;
+  }
+
   @media (max-width: 768px) { 
     .header {
       flex-wrap: wrap;
