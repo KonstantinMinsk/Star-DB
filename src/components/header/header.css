@@ -21,8 +21,8 @@
     color: white;
   }
   
-  .header h3 a:hover {
-    color: #00bc8c;
+  .header .d-flex a:hover {
+    color: #1effc7;
   }
   .header a {
     line-height: 3rem;

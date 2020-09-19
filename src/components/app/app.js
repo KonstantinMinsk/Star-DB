@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import './app.css';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import ErrorButton from '../error-button/error-button';
-import ErrorIndicator from '../error-indicator';
-import PeoplePage from '../people-page/people-page';
-import SwapiServise from '../service/swapi-servise';
+// import ErrorButton from./error-button/error-button';
+import ErrorIndicator from '../error-indicator/error-indicator';
+import SwapiServise from '../../service/swapi-servise';
 // import ItemDetails, { Record } from '../item-details/item-details-problem';
-import PlanetPage from '../planet-page/planet-page';
-import { SwapiServiseProvider } from '../swapi-servise-context';
-import DummySwapiServise from '../service/dummy-swapi-service';
-import StarshipPage from '../starship-page/starship-page';
+import { SwapiServiseProvider } from '../../swapi-servise-context/index';
+import DummySwapiServise from '../../service/dummy-swapi-service';
+import { 
+  PeoplePage,
+  PlanetPage,
+  StarshipPage,
+} from '../pages/index';
 
 export default class App extends Component {
 
@@ -82,13 +83,14 @@ export default class App extends Component {
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
-          <ErrorButton />
-          <PeoplePage />
-
+          {/* <ErrorButton /> */}
+          
           {/* <div className='row'>
               {personDetails}
               {planetDetails}
           </div> */}
+          
+          <PeoplePage />
           <PlanetPage />
           <StarshipPage />
       </SwapiServiseProvider>

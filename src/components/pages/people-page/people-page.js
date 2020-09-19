@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './people-page.css';
-import ItemList from '../item-list/itemList';
-import SwapiServise from '../service/swapi-servise';
-import Row from '../row/row';
-import ErrorBoundary from '../error-boundary/error-boundary';
-import ItemDetails from '../item-details/item-details-problem';
-import { PersonDetails } from '../sw-components';
+import ItemList from '../../item-list/itemList';
+import SwapiServise from '../../../service/swapi-servise';
+import Row from '../../row/row';
+import ErrorBoundary from '../../error-boundary/error-boundary';
+// import ItemDetails from '../../item-details/item-details-problem';
+import { PersonDetails } from '../../../sw-components';
 
 export default class PeoplePage extends Component {
 
     swapiServise = new SwapiServise();
 
     state = {
-        selectedPerson: 11,
+        selectedPerson: null,
     }
 
     onPersonSelected = (id) => {
@@ -45,9 +45,13 @@ export default class PeoplePage extends Component {
           </ErrorBoundary>
           )
 
+        const message = (
+            <h4 className='message'> Select a item from a list </h4>
+        )
+
         return (
             <Row left={ itemList } 
-                 right={ personDetails } />
+                 right={ selectedPerson ? personDetails : message } />
         )
     }
 }

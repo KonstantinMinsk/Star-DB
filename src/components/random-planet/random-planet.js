@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './random-planet.css';
-import SwapiServise from '../service/swapi-servise';
+import SwapiServise from '../../service/swapi-servise';
 import Spinner from '../spinner/spinner';
 import ErrorIndicator from '../error-indicator';
 

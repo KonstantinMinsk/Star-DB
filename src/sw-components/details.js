@@ -1,8 +1,8 @@
 import React from 'react';
-import withSwapiServise from '../hoc/with-swapi-servise';
-import ItemDetails, { Record } from '../item-details/item-details-problem';
+import withSwapiServise from '../components/hoc/with-swapi-servise';
+import ItemDetails, { Record } from '../components/item-details/item-details-problem';
 import SwapiServise from '../service/swapi-servise';
-import { SwapiServiseConsumer } from '../swapi-servise-context';
+import { SwapiServiseConsumer } from '../swapi-servise-context/index';
 
 const swapiServise = new SwapiServise();
 const {

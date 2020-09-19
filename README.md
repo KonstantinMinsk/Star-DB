@@ -97,3 +97,5 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
     )
 }
 ```
+
+### Create folder Components & change path 

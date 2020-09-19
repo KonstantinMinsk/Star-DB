@@ -42,7 +42,7 @@ const withData = (View) => {
         }
 
         update = () => {
-            console.log(this.props);
+            // console.log(this.props);
             const { getData } = this.props;
             getData()
                 .then(itemList => {

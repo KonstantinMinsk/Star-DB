@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Row from '../row/row';
-import ErrorBoundary from '../error-boundary/error-boundary';
-import { StarshipList } from '../sw-components';
-import StarshipDetails from '../sw-components/details'
+import Row from '../../row/row';
+import ErrorBoundary from '../../error-boundary/error-boundary';
+import { StarshipList } from '../../../sw-components';
+import StarshipDetails from '../../../sw-components/details'
 
 export default class StarshipPage extends Component {
 

@@ -1,13 +1,11 @@
 import React from 'react';
-import { withData, ViewList } from '../hoc/theory';
-import withSwapiServise from '../hoc/with-swapi-servise';
+import { withData, ViewList } from '../components/hoc/with-data';
+import withSwapiServise from '../components/hoc/with-swapi-servise';
 import SwapiServise from '../service/swapi-servise';
 
 const swapiServise = new SwapiServise();
 const {
     getAllPeople,
-    getAllPlanets,
-    getAllStarships
 } = swapiServise;
 
 const withChildFunction = (Wrapped, fn) => {
