@@ -114,3 +114,6 @@ const compose = (...funcs) => (component) => {
 ### Create propTypes in RandomPlanet
 
 ### npm install prop-types, add in Row
+
+### npm install react-router-dom 
+Create Routing in App & Header

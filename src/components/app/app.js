@@ -13,6 +13,11 @@ import {
   StarshipPage,
 } from '../pages/index';
 
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
+
 export default class App extends Component {
 
     // swapiServise = new SwapiServise(); 
@@ -76,6 +81,7 @@ export default class App extends Component {
 
     return (
       <SwapiServiseProvider value={swapiServise}>
+        <Router>
           <Header onServiceChange={this.onServiceChange} />
           { randomPlanet }
           <button
@@ -89,10 +95,17 @@ export default class App extends Component {
               {personDetails}
               {planetDetails}
           </div> */}
-          
-          <PeoplePage />
+          <Route path='/' render={ () => <h2 style={{aliginText: 'center' }}>Welcome to Star DB</h2>} 
+                 exact
+          />
+          <Route path='/people' component={PeoplePage} />
+          <Route path='/planets' component={PlanetPage} />
+          <Route path='/starships' component={StarshipPage} />
+
+          {/* <PeoplePage />
           <PlanetPage />
-          <StarshipPage />
+          <StarshipPage /> */}
+        </Router>
       </SwapiServiseProvider>
     );
   }
