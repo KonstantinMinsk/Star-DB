@@ -106,3 +106,5 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
     return funcs.reduceRight((wrapped, fn) => fn(wrapped), component)
 }
 ``` 
+
+### Create defaultProps, add in ViewList & RandomPlanet

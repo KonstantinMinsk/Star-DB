@@ -93,5 +93,9 @@ const ViewList = (props) => {
         </ul>
     )
 }
+ViewList.defaultProps = {
+    onItemSelected: () => {},
+  };
+
 
 export { withData, ViewList }
