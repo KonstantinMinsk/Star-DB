@@ -108,3 +108,5 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 ``` 
 
 ### Create defaultProps, add in ViewList & RandomPlanet
+
+### Create propTypes in RandomPlanet
