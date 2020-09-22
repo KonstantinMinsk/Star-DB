@@ -8,6 +8,7 @@ import SwapiServise from '../../service/swapi-servise';
 import { SwapiServiseProvider } from '../../swapi-servise-context/index';
 import DummySwapiServise from '../../service/dummy-swapi-service';
 import { 
+  Home,
   PeoplePage,
   PlanetPage,
   StarshipPage,
@@ -95,8 +96,9 @@ export default class App extends Component {
               {personDetails}
               {planetDetails}
           </div> */}
-          <Route path='/' render={ () => <h2 style={{aliginText: 'center' }}>Welcome to Star DB</h2>} 
-                 exact
+          <Route path='/' 
+                  exact
+                  component={ Home }
           />
           <Route path='/people' component={PeoplePage} />
           <Route path='/planets' component={PlanetPage} />

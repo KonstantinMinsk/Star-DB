@@ -117,3 +117,5 @@ const compose = (...funcs) => (component) => {
 
 ### npm install react-router-dom 
 Create Routing in App & Header
+
+### Create HomePage, add in App
