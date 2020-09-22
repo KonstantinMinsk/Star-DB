@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner/spinner';
 import ErrorIndicator from '../error-indicator';
+import PropTypes from 'prop-types';
+
 
 // const f = (a) => {
 //     return (b) => {
@@ -96,6 +98,10 @@ const ViewList = (props) => {
 ViewList.defaultProps = {
     onItemSelected: () => {},
   };
-
+ViewList.propTypes = {
+    itemList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onItemSelected: PropTypes.func,
+    children: PropTypes.func.isRequired
+}
 
 export { withData, ViewList }

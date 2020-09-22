@@ -89,7 +89,8 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 ### Add DummySwapiService
 
 ### Create HOC for context 
-```const withValueFromContext = (Wrapped) => {
+```
+const withValueFromContext = (Wrapped) => {
     return (
         <Consumer>
             { (value) => (<Wrapped value={value} />) }
@@ -102,7 +103,8 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 
 ### Create fn compose
 В код ф-ю не добавлял, sample-compose.js для ознакомления работы с фун-м программированием
-``` const compose = (...funcs) => (component) => {
+``` 
+const compose = (...funcs) => (component) => {
     return funcs.reduceRight((wrapped, fn) => fn(wrapped), component)
 }
 ``` 
@@ -110,3 +112,5 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 ### Create defaultProps, add in ViewList & RandomPlanet
 
 ### Create propTypes in RandomPlanet
+
+### npm install prop-types, add in Row
