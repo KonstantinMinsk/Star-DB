@@ -52,7 +52,7 @@ const StarshipDetails = ({ itemId, swapiServise }) => {
                      getImageURL={ getStarshipImage }
     >
         <Record field='model' label='Model'/>
-        <Record field='costInCredit' label='CostI in credit'/>
+        <Record field='costInCredit' label='Cost in credit'/>
         <Record field='cargoCapacity' label='Cargo capacity'/>
     </ItemDetails>
     )

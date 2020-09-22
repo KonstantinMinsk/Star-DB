@@ -6,7 +6,7 @@ import { PlanetDetails, PlanetList } from '../../../sw-components/index';
 export default class PlanetPage extends Component {
 
     state = {
-        selectedPlanet: 11,
+        selectedPlanet: null,
     }
 
     onPersonSelected = (id) => {
@@ -34,9 +34,12 @@ export default class PlanetPage extends Component {
           </ErrorBoundary>
           )
 
+    const message = (
+            <h4 className='message'> Select a item from a list </h4>
+        )      
         return (
             <Row left={ planetList } 
-                 right={ personDetails } />
+                 right={ selectedPlanet ? personDetails : message } />
         )
     }
 }

@@ -29,6 +29,7 @@
     }
     getAllStarships = async () => {
         const res = await this.getResource('https://swapi.dev/api/starships/');
+        // return res.results;
         return res.results.map(this._transforStarship);
     }
     getStarship = async (id) => {
@@ -67,7 +68,7 @@
             model: starship.model,
             length: starship.length,
             cargoCapacity: starship.cargo_capacity,
-            costInCredit: starship.cost_in_credit
+            costInCredit: starship.cost_in_credits
           }
     }
 
@@ -87,7 +88,7 @@
 
 // const swapi = new SwapiServise();
 
-// swapi.getAllPeople().then((people) => {
+// swapi.getAllStarships().then((people) => {
 //     people.forEach(person => {
 //         console.log(person);
 //     });
