@@ -17,7 +17,7 @@ const withChildFunction = (Wrapped, fn) => {
         )
     }
 }
-
+export { withChildFunction }
 // const ListWithChildren = withChildFunction(ViewList, renderPlanet)
 // const compose = (x) => func(g(x));
 

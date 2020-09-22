@@ -99,3 +99,10 @@ const PlanetList = withData(withChildFunction(ViewList, renderPlanet), getAllPla
 ```
 
 ### Create folder Components & change path 
+
+### Create fn compose
+В код ф-ю не добавлял, sample-compose.js для ознакомления работы с фун-м программированием
+``` const compose = (...funcs) => (component) => {
+    return funcs.reduceRight((wrapped, fn) => fn(wrapped), component)
+}
+``` 

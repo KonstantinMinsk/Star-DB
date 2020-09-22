@@ -2,7 +2,9 @@
     display: flex;
     padding: 1rem;
   }
-  
+.random-planet h4 {
+  padding: 0rem 1rem 0;
+}
 .random-planet .planet-image {
     width: 150px;
     height: 150px;
