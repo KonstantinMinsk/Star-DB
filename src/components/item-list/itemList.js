@@ -32,7 +32,10 @@ class ItemList extends Component {
 
     renderItem(arr) {
         return arr.map(item => {
-            const { id, name } = item;
+            const { 
+                id, 
+                // name 
+            } = item;
             const label = this.props.renderLabel(item)
             return (
                 <li className='list-group-item'

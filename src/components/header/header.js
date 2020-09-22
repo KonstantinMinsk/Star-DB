@@ -6,20 +6,20 @@ import {
   } from "react-router-dom";
 
   
-const Header = ({ onServiceChange }) => {
+const Header = ({ onServiceChange, onActiveNavLink }) => {
     return(
         <div className='header d-flex'>
-            <h3>
-                <Link  to='/'> Star DB </Link>
+            <h3 onClick={(e) => onActiveNavLink(e)} >
+                <Link  to='/'>Star DB</Link>
             </h3>
-            <ul className='d-flex'>
-                <li>
+            <ul className='d-flex' id='nav'>
+                <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/people'>People</Link>
                 </li>
-                <li>
+                <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/planets'> Planets </Link>
                 </li>
-                <li>
+                <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/starships'> Starships </Link>
                 </li>
                 <button className='btn btn-primary btn-sm'

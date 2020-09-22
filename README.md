@@ -119,3 +119,5 @@ const compose = (...funcs) => (component) => {
 Create Routing in App & Header
 
 ### Create HomePage, add in App
+
+### Add onClick={ (e) => onActiveNavLink(e) in Header & App

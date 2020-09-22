@@ -40,6 +40,16 @@ export default class App extends Component {
     })
   }
 
+  onActiveNavLink = (e) => {
+    document.querySelectorAll('#nav li')
+      .forEach(el => el.classList.remove('active'))
+      if(e.currentTarget.textContent === 'Star DB') {
+        return
+      } else {
+        e.currentTarget.classList.add('active')
+      }
+  }
+
   componentDidCatch() {
     this.setState({ hasError: true })
   }
@@ -81,9 +91,9 @@ export default class App extends Component {
     //     </ItemDetails>)
 
     return (
-      <SwapiServiseProvider value={swapiServise}>
+      <SwapiServiseProvider value={swapiServise} onActiveNavLink={this.onActiveNavLink}>
         <Router>
-          <Header onServiceChange={this.onServiceChange} />
+          <Header onServiceChange={this.onServiceChange} onActiveNavLink={this.onActiveNavLink} />
           { randomPlanet }
           <button
             className="toggle-planet btn btn-warning btn-lg"
