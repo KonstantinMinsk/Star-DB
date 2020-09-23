@@ -50,8 +50,11 @@ export default class PeoplePage extends Component {
         )
 
         return (
+          <>
+            <h3> The famous People Star DB </h3>
             <Row left={ itemList } 
                  right={ selectedPerson ? personDetails : message } />
+          </>
         )
     }
 }

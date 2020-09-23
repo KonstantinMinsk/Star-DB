@@ -38,6 +38,7 @@ export default class App extends Component {
             swapiServise: new Service(),
       }
     })
+    document.querySelector('.header .btn').classList.toggle('active');
   }
 
   onActiveNavLink = (e) => {

@@ -9,9 +9,9 @@ import {
 const Header = ({ onServiceChange, onActiveNavLink }) => {
     return(
         <div className='header d-flex'>
-            <h3 onClick={(e) => onActiveNavLink(e)} >
+            <h1 onClick={(e) => onActiveNavLink(e)} >
                 <Link  to='/'>Star DB</Link>
-            </h3>
+            </h1>
             <ul className='d-flex' id='nav'>
                 <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/people'>People</Link>
@@ -22,12 +22,13 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
                 <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/starships'> Starships </Link>
                 </li>
-                <button className='btn btn-primary btn-sm'
+            </ul>
+            <button className='btn btn-primary btn-sm button-service'
                         onClick={onServiceChange}
+                        style={{ height: '48px' }}
                 >
                     Change Service
-                </button>
-            </ul>
+            </button>
         </div>
     )
 }

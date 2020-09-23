@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from '../../row/row';
 import ErrorBoundary from '../../error-boundary/error-boundary';
 import { PlanetDetails, PlanetList } from '../../../sw-components/index';
+import './planet-page.css';
 
 export default class PlanetPage extends Component {
 
@@ -38,8 +39,11 @@ export default class PlanetPage extends Component {
             <h4 className='message'> Select a item from a list </h4>
         )      
         return (
+          <>
+            <h3> The popular Planets Star DB </h3>
             <Row left={ planetList } 
                  right={ selectedPlanet ? personDetails : message } />
+          </>
         )
     }
 }
