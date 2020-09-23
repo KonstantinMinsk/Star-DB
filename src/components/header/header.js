@@ -5,12 +5,10 @@ import {
     Link
   } from "react-router-dom";
 
-import { withRouter } from 'react-router-dom';
-
-const Header = ({ onServiceChange, onActiveNavLink }) => {
+const Header = ({ onServiceChange, onActiveNavLink }) => { 
     return(
         <div className='header d-flex'>
-            <h1 onClick={(e) => onActiveNavLink(e)} >
+            <h1 onClick={ (e) => onActiveNavLink(e) } >
                 <Link  to='/'>Star DB</Link>
             </h1>
             <ul className='d-flex' id='nav'>
@@ -33,4 +31,4 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
         </div>
     )
 }
-export default withRouter(Header)
+export default Header

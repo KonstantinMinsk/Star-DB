@@ -70,20 +70,21 @@ const withData = (View) => {
 
 const ViewList = (props) => {
 
-    const { itemList, onItemSelected, children: renderLabel } = props;
-    // console.log(props);
+    const { itemList, onItemSelected, children: renderLabel, location } = props;
+    // console.log(location);
     
     const renderItem = (arr) => {
         return arr.map(item => {
             const { 
                 id, 
-                // name 
+                name 
             } = item;
             const label = renderLabel(item); //где передавать props ?
             return (
                 <li className='list-group-item'
                     key={id} 
                     onClick={ () => onItemSelected(id) } 
+                    name={ name }
                 >
                     { label }
                 </li>
@@ -93,7 +94,11 @@ const ViewList = (props) => {
 
     const items = renderItem(itemList);
     return (
-        <ul className='item-list list-group col-6'>
+        <ul className={ location ? 'item-list list-group' : 'item-list list-group col-6'}
+            style={{ padding: location ? '0 2rem' : null,
+                     marginBottom: location ? '32px' : null
+                }}
+        >
             { items }
         </ul>
     )

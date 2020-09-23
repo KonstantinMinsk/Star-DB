@@ -5,11 +5,10 @@ import './starship-page.css';
 import { withRouter } from 'react-router-dom';
 
 const StarshipPageRouting = ( props ) => {
-    console.log(props);
-    const { history } = props
+    const { history, location } = props
     const starshipList = (
       <ErrorBoundary>
-          <StarshipList 
+          <StarshipList location={location}
                 onItemSelected={ 
                   (itemId) => { 
                     const newPath = `/starships/${itemId}`

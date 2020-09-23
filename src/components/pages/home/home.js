@@ -5,7 +5,7 @@ import {
   } from "react-router-dom";
 
 const onActivMenuLink = (e) => {
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
     document.querySelectorAll('#menu-home > li').forEach( (el, i) => {
         if(e.currentTarget === el) {
             document.querySelectorAll('#nav li')[i].classList.add('active');

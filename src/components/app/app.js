@@ -118,7 +118,20 @@ export default class App extends Component {
           <Route path='/starships/:id' 
                  render={ ({ match, location, history }) => {
                     const { id } = match.params
-                    return <StarshipDetails itemId={id} /> }} />
+                    return (
+                      <>
+                        <StarshipDetails itemId={id} />
+                        <button 
+                            style={{ margin: '12px' }}
+                            className='btn btn-primary'
+                            onClick={ () => {
+                                history.push('/starships')
+                            }}
+                        >
+                            Back
+                        </button>
+                      </>
+                    ) }} />
 
           {/* <PeoplePage />
           <PlanetPage />
