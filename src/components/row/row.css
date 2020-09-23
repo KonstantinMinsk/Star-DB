@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+@media(max-width: 768px) { 
+    .row {
+        flex-wrap: wrap;
+    }
+ }

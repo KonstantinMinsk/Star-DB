@@ -121,3 +121,25 @@ Create Routing in App & Header
 ### Create HomePage, add in App
 
 ### Add onClick={ (e) => onActiveNavLink(e) in Header & App
+
+### Create dynamic path 
+```
+<Route path={'/pepople/:id'}>
+render = { ({ match }) => <p> {match.params.id} </p>}
+```
+### HOC withRouter передает компоненту объекты react router
+```
+const MyComp = ({ match, location, history }) => {
+        return (
+            <Button
+                onClick={ 
+                    () => history.push('/new/path')
+                }
+            >
+                Click ME
+            </Button>
+        )
+    }
+)
+export default withRouter(MyComp)
+```

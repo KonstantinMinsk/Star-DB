@@ -13,11 +13,12 @@ import {
   PlanetPage,
   StarshipPage,
 } from '../pages/index';
-
 import {
   BrowserRouter as Router,
-  Route,
+  Route, 
 } from "react-router-dom";
+import StarshipDetails from '../../sw-components/details'
+import starshipPageRouting from '../pages/starship-page/starship-page-routing';
 
 export default class App extends Component {
 
@@ -96,7 +97,7 @@ export default class App extends Component {
         <Router>
           <Header onServiceChange={this.onServiceChange} onActiveNavLink={this.onActiveNavLink} />
           { randomPlanet }
-          <button
+          <button style={{ marginBottom: '32px'}}
             className="toggle-planet btn btn-warning btn-lg"
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
@@ -113,7 +114,11 @@ export default class App extends Component {
           />
           <Route path='/people' component={PeoplePage} />
           <Route path='/planets' component={PlanetPage} />
-          <Route path='/starships' component={StarshipPage} />
+          <Route path='/starships' exact component={starshipPageRouting} />
+          <Route path='/starships/:id' 
+                 render={ ({ match, location, history }) => {
+                    const { id } = match.params
+                    return <StarshipDetails itemId={id} /> }} />
 
           {/* <PeoplePage />
           <PlanetPage />

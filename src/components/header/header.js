@@ -5,7 +5,8 @@ import {
     Link
   } from "react-router-dom";
 
-  
+import { withRouter } from 'react-router-dom';
+
 const Header = ({ onServiceChange, onActiveNavLink }) => {
     return(
         <div className='header d-flex'>
@@ -32,4 +33,4 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
         </div>
     )
 }
-export default Header
+export default withRouter(Header)

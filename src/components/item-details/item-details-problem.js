@@ -53,7 +53,7 @@ export default class ItemDetails extends Component {
                     : <ViewPerson item={ item } image={ image } > { children } </ViewPerson>
 
     return (
-      <div className="person-details card col-6">
+      <div className="person-details card">
           { content }
       </div>
     )
@@ -81,7 +81,7 @@ const ViewPerson = (props) => {
   // const { id, name, gender, birthYear, eyeColor } = item;
   return (
     <>
-      <img className="person-image" alt=''
+      <img className="person-image" alt='Фото не загрузилось'
         src={ image } />
 
       <div className="card-body">
