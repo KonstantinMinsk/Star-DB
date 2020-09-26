@@ -13,13 +13,13 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
             </h1>
             <ul className='d-flex' id='nav'>
                 <li onClick={ (e) => onActiveNavLink(e) }>
-                    <Link to='/people'>People</Link>
+                    <Link to='/people/'>People</Link>
                 </li>
                 <li onClick={ (e) => onActiveNavLink(e) }>
-                    <Link to='/planets'> Planets </Link>
+                    <Link to='/planets/'> Planets </Link>
                 </li>
                 <li onClick={ (e) => onActiveNavLink(e) }>
-                    <Link to='/starships'> Starships </Link>
+                    <Link to='/starships/'> Starships </Link>
                 </li>
             </ul>
             <button className='btn btn-primary btn-sm button-service'

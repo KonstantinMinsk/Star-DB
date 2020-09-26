@@ -12,7 +12,7 @@ export default class PeoplePage extends Component {
     swapiServise = new SwapiServise();
 
     state = {
-        selectedPerson: 1,
+        selectedPerson: null,
     }
 
     onPersonSelected = (id) => {

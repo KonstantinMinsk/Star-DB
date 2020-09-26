@@ -10,9 +10,16 @@ const StarshipPageRouting = ( props ) => {
       <ErrorBoundary>
           <StarshipList location={location}
                 onItemSelected={ 
+
+                // dynamic path  
+                //   (itemId) => { 
+                //     const newPath = `/starships/${itemId}`
+                //     history.push(`${newPath}`)
+                //    } 
+
+                // relative path & !!! /path/ -- <Link to='/people/'>People</Link>
                   (itemId) => { 
-                    const newPath = `/starships/${itemId}`
-                    history.push(`${newPath}`)
+                    history.push(itemId)
                    } 
                   } 
                 // renderLabel={ item => item.name }

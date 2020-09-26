@@ -143,3 +143,11 @@ const MyComp = ({ match, location, history }) => {
 )
 export default withRouter(MyComp)
 ```
+
+### add Router for StarshipPageRouting
+Опциональный параметры path
+```
+<Route path='/people/:id?' component={nameComponent} />
+```
+> Приложение должно позволять перезагружать страницы или передавать URL другим пользователям
+> АДрес должен содержать id открытого элемента (товара или фильма или other item), тогда открыв URL пользователь оказывается на нужной странице, т.е. увидит тот же 'экран'

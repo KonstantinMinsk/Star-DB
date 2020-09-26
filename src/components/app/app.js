@@ -19,6 +19,7 @@ import {
 } from "react-router-dom";
 import StarshipDetails from '../../sw-components/details'
 import starshipPageRouting from '../pages/starship-page/starship-page-routing';
+import peoplePageRouting from '../pages/people-page/people-page-routing';
 
 export default class App extends Component {
 
@@ -112,7 +113,7 @@ export default class App extends Component {
                   exact
                   component={ Home }
           />
-          <Route path='/people' component={PeoplePage} />
+          <Route path='/people/:id?' component={peoplePageRouting} />
           <Route path='/planets' component={PlanetPage} />
           <Route path='/starships' exact component={starshipPageRouting} />
           <Route path='/starships/:id' 
@@ -125,7 +126,7 @@ export default class App extends Component {
                             style={{ margin: '12px' }}
                             className='btn btn-primary'
                             onClick={ () => {
-                                history.push('/starships')
+                                history.push('/starships/')
                             }}
                         >
                             Back

@@ -20,7 +20,7 @@ const Home = () => {
             <h2> Welcome to Star DB </h2>
             <ul className='d-flex' id='menu-home'>
                 <li onClick={onActivMenuLink}>
-                    <Link to='/people'>
+                    <Link to='/people/'>
                         <div className="card border-primary mb-3" style={{maxWidth: '20rem'}}>
                             <div className="card-header">People</div>
                             <div className="card-body">
@@ -31,7 +31,7 @@ const Home = () => {
                 </li>
 
                 <li onClick={onActivMenuLink}>
-                    <Link to='/planets'> 
+                    <Link to='/planets/'> 
                         <div className="card border-primary mb-3" style={{maxWidth: '20rem'}}>
                             <div className="card-header">Planets</div>
                             <div className="card-body">
@@ -42,7 +42,7 @@ const Home = () => {
                 </li>
                 
                 <li onClick={onActivMenuLink}>
-                    <Link to='/starships'>  
+                    <Link to='/starships/'>  
                         <div className="card border-primary mb-3" style={{maxWidth: '20rem'}}>
                             <div className="card-header">Starships</div>
                             <div className="card-body">
