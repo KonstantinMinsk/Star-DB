@@ -9,8 +9,10 @@ import { SwapiServiseProvider } from '../../swapi-servise-context/index';
 import DummySwapiServise from '../../service/dummy-swapi-service';
 import { 
   Home,
+    LoginPage,
   PeoplePage,
   PlanetPage,
+  SecretPage,
   StarshipPage,
 } from '../pages/index';
 import {
@@ -30,6 +32,14 @@ export default class App extends Component {
     showRandomPlanet: true,
     hasError: false,
     swapiServise: new SwapiServise(),
+    isLoggedIn: false
+  }
+
+  onLogin = (e) => {
+      this.setState({
+          isLoggedIn: true
+      })
+      this.onActiveNavLink(e)
   }
 
   onServiceChange = () => {
@@ -44,10 +54,17 @@ export default class App extends Component {
   }
 
   onActiveNavLink = (e) => {
-    document.querySelectorAll('#nav li')
-      .forEach(el => el.classList.remove('active'))
-      if(e.currentTarget.textContent === 'Star DB') {
+    const navMenu = document.querySelectorAll('#nav li');
+      navMenu.forEach(el => el.classList.remove('active'))
+      if(e.currentTarget.textContent.trim() === 'Star DB') {
         return
+      } 
+      if(e.currentTarget.textContent.trim() === 'Secret') {
+        if (this.state.isLoggedIn) {
+            e.currentTarget.classList.add('active')
+        } else {
+            navMenu[4].classList.add('active')
+        }
       } else {
         e.currentTarget.classList.add('active')
       }
@@ -65,14 +82,14 @@ export default class App extends Component {
 
   render() {
 
-    const { showRandomPlanet, hasError, swapiServise } = this.state
+    const { showRandomPlanet, hasError, swapiServise, isLoggedIn } = this.state
 
     if(hasError) {
       return <ErrorIndicator />
     }
 
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
-
+    
     // const { getPersonImage, getPlanetImage } = this.swapiServise;
     // const personDetails = (
     //     <ItemDetails itemId={ 41 } 
@@ -116,23 +133,37 @@ export default class App extends Component {
           <Route path='/people/:id?' component={peoplePageRouting} />
           <Route path='/planets' component={PlanetPage} />
           <Route path='/starships' exact component={starshipPageRouting} />
-          <Route path='/starships/:id' 
-                 render={ ({ match, location, history }) => {
-                    const { id } = match.params
-                    return (
-                      <>
-                        <StarshipDetails itemId={id} />
-                        <button 
-                            style={{ margin: '12px' }}
-                            className='btn btn-primary'
-                            onClick={ () => {
-                                history.push('/starships/')
-                            }}
-                        >
-                            Back
-                        </button>
-                      </>
-                    ) }} />
+          <Route 
+                path='/starships/:id' 
+                render={ ({ match, location, history }) => {
+                   const { id } = match.params
+                   return (
+                     <>
+                       <StarshipDetails itemId={id} />
+                       <button 
+                           style={{ margin: '12px' }}
+                           className='btn btn-primary'
+                           onClick={ () => {
+                               history.push('/starships/')
+                           }}
+                       >
+                           Back
+                       </button>
+                     </>
+                   ) }} />
+            <Route path='/secret'
+                render={ () => (
+                    <SecretPage isLoggedIn={isLoggedIn} 
+                        onServiceChange={this.onServiceChange} 
+                    />)}
+            />
+            <Route path='/login' 
+                render={ () => (
+                    <LoginPage isLoggedIn={isLoggedIn} 
+                        onLogin={this.onLogin}
+                        onActiveNavLink={this.onActiveNavLink} 
+                    />)}
+            />
 
           {/* <PeoplePage />
           <PlanetPage />

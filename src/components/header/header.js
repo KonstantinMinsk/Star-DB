@@ -21,6 +21,11 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
                 <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/starships/'> Starships </Link>
                 </li>
+                <li onClick={ (e) => onActiveNavLink(e) }>
+                    <Link to='/secret'> Secret </Link>
+                </li><li onClick={ (e) => onActiveNavLink(e) }>
+                    <Link to='/login'> Login </Link>
+                </li>
             </ul>
             <button className='btn btn-primary btn-sm button-service'
                         onClick={onServiceChange}
