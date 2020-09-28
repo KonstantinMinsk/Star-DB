@@ -178,6 +178,7 @@ export default class App extends Component {
                 render={ () => (
                     <SecretPage isLoggedIn={isLoggedIn} 
                         onServiceChange={this.onServiceChange} 
+                        swapiServise={swapiServise}
                     />)}
             />
             <Route path='/login' 

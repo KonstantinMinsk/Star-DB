@@ -156,5 +156,5 @@ export default withRouter(MyComp)
 Add LoginPage && SecretPage
 Используется для удобства пользователей (для роутинга), праверка прав должна происходить на сервере
 
-### Update login-page
+### Update LoginPage
 add e.key === 'Enter' 
