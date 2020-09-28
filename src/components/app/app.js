@@ -4,7 +4,6 @@ import RandomPlanet from '../random-planet/random-planet';
 // import ErrorButton from./error-button/error-button';
 import ErrorIndicator from '../error-indicator/error-indicator';
 import SwapiServise from '../../service/swapi-servise';
-// import ItemDetails, { Record } from '../item-details/item-details-problem';
 import { SwapiServiseProvider } from '../../swapi-servise-context/index';
 import DummySwapiServise from '../../service/dummy-swapi-service';
 import { 
@@ -17,8 +16,9 @@ import {
 } from '../pages/index';
 import {
   BrowserRouter as Router,
-    Redirect,
+  Redirect, 
   Route, 
+  Switch
 } from "react-router-dom";
 import StarshipDetails from '../../sw-components/details'
 import starshipPageRouting from '../pages/starship-page/starship-page-routing';
@@ -110,26 +110,6 @@ export default class App extends Component {
     }
 
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
-    
-    // const { getPersonImage, getPlanetImage } = this.swapiServise;
-    // const personDetails = (
-    //     <ItemDetails itemId={ 41 } 
-    //                  getData={ this.swapiServise.getPerson } 
-    //                  getImageURL={ getPersonImage }
-    //     >
-    //           <Record field='gender' label='Gender'/>
-    //           <Record field='eyeColor' label='Eye Color'/>
-    //     </ItemDetails>
-    // )
-
-    // const planetDetails = (
-    //     <ItemDetails  itemId={ 18 } 
-    //                   getData={ this.swapiServise.getPlanet } 
-    //                   getImageURL={ getPlanetImage }
-    //     >
-    //                     <Record field='population' label='Population'/>
-    //                     <Record field='rotationPeriod' label='Rotation Period'/>
-    //     </ItemDetails>)
 
     return (
       <SwapiServiseProvider value={swapiServise} onActiveNavLink={this.onActiveNavLink}>
@@ -145,10 +125,7 @@ export default class App extends Component {
           </button>
           {/* <ErrorButton /> */}
           
-          {/* <div className='row'>
-              {personDetails}
-              {planetDetails}
-          </div> */}
+          <Switch>
           <Route path='/' 
                   exact
                   component={ Home }
@@ -189,6 +166,14 @@ export default class App extends Component {
                         onActiveNavLink={this.onActiveNavLink} 
                     />)}
             />
+
+            <Route render={() => {
+              return (<div className="jumbotron jumbotron-fluid text-center">
+                        <h2> Page not found </h2>
+                      </div>)
+            }} />
+        </Switch>
+        
 
           {/* <PeoplePage />
           <PlanetPage />

@@ -29,3 +29,15 @@
     margin: 0;
   }
 }
+
+@media (max-width: 460px) { 
+    .random-planet {
+        flex-direction: column;
+        align-items: center;
+    }
+    .random-planet .planet-image {
+      width: 80%;
+      height: auto;
+      margin: 0px 0px 12px 0px;
+    }
+ }

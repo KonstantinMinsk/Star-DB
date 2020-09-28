@@ -4,9 +4,10 @@ import './login-page.css'
 
 const LoginPage = ({ isLoggedIn, onLogin, outLogin }) => {
 
+    const [value, setValue] = useState('');
     const [notValid, setnotValid] = useState(true);
-    const [x, setX] = useState(Math.floor(Math.random()*100) + 1)
-    const [y, setY] = useState(Math.floor(Math.random()*100) + 1)
+    const [x, setX] = useState(Math.floor(Math.random()*100) + 1);
+    const [y, setY] = useState(Math.floor(Math.random()*100) + 1);
 
     const result = (e) => {
         if(x+y === +e.target.value){
@@ -41,7 +42,10 @@ const LoginPage = ({ isLoggedIn, onLogin, outLogin }) => {
                 </div>
                 <input className="form-control" onChange={(e) => result(e)}
                     onKeyPress={ (e) => {
-                                    if(e.key === 'Enter') onLogin(e)
+                                    if(e.key === 'Enter') {
+                                        console.log(x+y === +value)
+                                        onLogin(e)
+                                    } 
                                     }}
                 />
             </div>

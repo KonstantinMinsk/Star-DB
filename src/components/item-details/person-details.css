@@ -30,3 +30,12 @@
       align-self: center;
     }
  }
+
+   @media (max-width: 460px) { 
+    .person-details {
+        flex-direction: column;
+    }
+    .person-details .person-image {
+      width: 100%;
+    }
+ }
