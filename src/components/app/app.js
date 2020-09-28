@@ -86,7 +86,7 @@ export default class App extends Component {
       } else {
         e.currentTarget.classList.add('active')
       }
-      if(e.currentTarget.textContent.trim() === ('Loggin')) {
+      if(e.currentTarget.textContent.trim() === ('Loggin') || e.key === 'Enter') {
          navMenu[4].classList.add('active')
       }
   }

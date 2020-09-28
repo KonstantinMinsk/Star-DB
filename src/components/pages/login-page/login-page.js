@@ -39,7 +39,11 @@ const LoginPage = ({ isLoggedIn, onLogin, outLogin }) => {
                     <span className='badge badge-pill badge-primary'> {y} </span>
                     = 
                 </div>
-                <input className="form-control" onChange={(e) => result(e)}/>
+                <input className="form-control" onChange={(e) => result(e)}
+                    onKeyPress={ (e) => {
+                                    if(e.key === 'Enter') onLogin(e)
+                                    }}
+                />
             </div>
             <button
                 className="btn btn-primary btn-lg"
