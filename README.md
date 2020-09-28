@@ -155,3 +155,5 @@ export default withRouter(MyComp)
 ### Use <Redirect to="/login" />
 Add LoginPage && SecretPage
 Используется для удобства пользователей (для роутинга), праверка прав должна происходить на сервере
+
+### Update login-page

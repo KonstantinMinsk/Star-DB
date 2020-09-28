@@ -9,7 +9,6 @@ const SecretPage = ({ isLoggedIn, onServiceChange }) => {
                 <h2> This page is full of secret </h2>
                 <button className='btn btn-primary btn-sm button-service'
                         onClick={onServiceChange}
-                        style={{ height: '48px' }}
                 >
                     Change Service
                 </button>

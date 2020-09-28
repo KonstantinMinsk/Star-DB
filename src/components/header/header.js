@@ -2,12 +2,12 @@ import React from 'react';
 import './header.css';
 
 import {
-    Link
+    Link, Redirect
   } from "react-router-dom";
 
-const Header = ({ onServiceChange, onActiveNavLink }) => { 
+const Header = ({ onServiceChange, onActiveNavLink, isLoggedIn }) => { 
     return(
-        <div className='header d-flex'>
+        <div className='header d-flex justify-content-around'>
             <h1 onClick={ (e) => onActiveNavLink(e) } >
                 <Link  to='/'>Star DB</Link>
             </h1>
@@ -23,13 +23,13 @@ const Header = ({ onServiceChange, onActiveNavLink }) => {
                 </li>
                 <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/secret'> Secret </Link>
-                </li><li onClick={ (e) => onActiveNavLink(e) }>
+                </li>
+                <li onClick={ (e) => onActiveNavLink(e) }>
                     <Link to='/login'> Login </Link>
                 </li>
             </ul>
             <button className='btn btn-primary btn-sm button-service'
                         onClick={onServiceChange}
-                        style={{ height: '48px' }}
                 >
                     Change Service
             </button>

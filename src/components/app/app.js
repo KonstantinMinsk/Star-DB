@@ -9,7 +9,7 @@ import { SwapiServiseProvider } from '../../swapi-servise-context/index';
 import DummySwapiServise from '../../service/dummy-swapi-service';
 import { 
   Home,
-    LoginPage,
+  LoginPage,
   PeoplePage,
   PlanetPage,
   SecretPage,
@@ -17,6 +17,7 @@ import {
 } from '../pages/index';
 import {
   BrowserRouter as Router,
+    Redirect,
   Route, 
 } from "react-router-dom";
 import StarshipDetails from '../../sw-components/details'
@@ -42,16 +43,33 @@ export default class App extends Component {
       this.onActiveNavLink(e)
   }
 
-  onServiceChange = () => {
-    this.setState(({ swapiServise }) => {
-      const Service = swapiServise instanceof SwapiServise 
-                      ? DummySwapiServise : SwapiServise
-      return {
-            swapiServise: new Service(),
-      }
+  outLogin = (e) => {
+    this.setState({
+        isLoggedIn: false
     })
-    document.querySelector('.header .btn').classList.toggle('active');
+    this.setState({
+        swapiServise: new SwapiServise()
+    })
+    document.querySelectorAll('.button-service')
+        .forEach(el => el.classList.remove('active'));
+}
+
+  onServiceChange = () => {
+      if(!this.state.isLoggedIn) {
+        return <Redirect to="/" /> // no work ???
+      } else {
+        this.setState(({ swapiServise }) => {
+            const Service = swapiServise instanceof SwapiServise 
+                            ? DummySwapiServise : SwapiServise
+            return {
+                  swapiServise: new Service(),
+            }
+          })
+          document.querySelectorAll('.button-service')
+        .forEach(el => el.classList.toggle('active'));
+      }
   }
+
 
   onActiveNavLink = (e) => {
     const navMenu = document.querySelectorAll('#nav li');
@@ -67,6 +85,9 @@ export default class App extends Component {
         }
       } else {
         e.currentTarget.classList.add('active')
+      }
+      if(e.currentTarget.textContent.trim() === ('Loggin')) {
+         navMenu[4].classList.add('active')
       }
   }
 
@@ -113,7 +134,9 @@ export default class App extends Component {
     return (
       <SwapiServiseProvider value={swapiServise} onActiveNavLink={this.onActiveNavLink}>
         <Router>
-          <Header onServiceChange={this.onServiceChange} onActiveNavLink={this.onActiveNavLink} />
+          <Header onServiceChange={this.onServiceChange} onActiveNavLink={this.onActiveNavLink} 
+              isLoggedIn={isLoggedIn}
+          />
           { randomPlanet }
           <button style={{ marginBottom: '32px'}}
             className="toggle-planet btn btn-warning btn-lg"
@@ -161,6 +184,7 @@ export default class App extends Component {
                 render={ () => (
                     <LoginPage isLoggedIn={isLoggedIn} 
                         onLogin={this.onLogin}
+                        outLogin={this.outLogin}
                         onActiveNavLink={this.onActiveNavLink} 
                     />)}
             />

@@ -1,0 +1,35 @@
+.number {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.alert {
+    max-width: 60%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.form-control {
+    margin-left: 1rem;
+    max-width: 30%;
+}
+.btn-lg {
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .alert {
+        max-width: 80%;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .alert {
+        max-width: 100%;
+    }
+    .form-control {
+        max-width: 100%;
+        margin: 0;
+    }
+  }

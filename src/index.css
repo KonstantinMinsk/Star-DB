@@ -6,6 +6,26 @@ body {
     margin: 32px 0 32px;
 }
 
+.button-service {
+  height: 48px;
+  border-radius: 10px;
+ }
+
+ .button-service, 
+ .button-service:focus,
+ .button-service:active {
+   background: none;
+   outline: none;
+ }
+
+ .button-service:hover {
+  background: #375a7f;
+}
+
+.button-service .active {
+  background: #375a7f;
+}
+
 @media (max-width: 768px) {
     .row {
       justify-content: center;
